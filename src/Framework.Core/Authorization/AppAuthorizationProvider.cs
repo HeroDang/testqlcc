@@ -29,6 +29,12 @@ namespace Framework.Authorization
             //COMMON PERMISSIONS (FOR BOTH OF TENANTS AND HOST)
 
             var pages = context.GetPermissionOrNull(AppPermissions.Pages) ?? context.CreatePermission(AppPermissions.Pages, L("Pages"));
+
+            var peoples = pages.CreateChildPermission(AppPermissions.Pages_Peoples, L("Peoples"));
+            peoples.CreateChildPermission(AppPermissions.Pages_Peoples_Create, L("CreateNewPeople"));
+            peoples.CreateChildPermission(AppPermissions.Pages_Peoples_Edit, L("EditPeople"));
+            peoples.CreateChildPermission(AppPermissions.Pages_Peoples_Delete, L("DeletePeople"));
+
             pages.CreateChildPermission(AppPermissions.Pages_DemoUiComponents, L("DemoUiComponents"));
 
             var administration = pages.CreateChildPermission(AppPermissions.Pages_Administration, L("Administration"));

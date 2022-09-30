@@ -1,4 +1,5 @@
-﻿using Abp.IdentityServer4vNext;
+﻿using Framework.Admin;
+using Abp.IdentityServer4vNext;
 using Abp.Zero.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Framework.Authorization.Delegation;
@@ -16,6 +17,8 @@ namespace Framework.EntityFrameworkCore
 {
     public class FrameworkDbContext : AbpZeroDbContext<Tenant, Role, User, FrameworkDbContext>, IAbpPersistedGrantDbContext
     {
+        public virtual DbSet<People> Peoples { get; set; }
+
         /* Define an IDbSet for each entity of the application */
 
         public virtual DbSet<BinaryObject> BinaryObjects { get; set; }
@@ -46,10 +49,14 @@ namespace Framework.EntityFrameworkCore
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<BinaryObject>(b =>
+            modelBuilder.Entity<People>(p =>
             {
-                b.HasIndex(e => new { e.TenantId });
+                p.HasIndex(e => new { e.TenantId });
             });
+            modelBuilder.Entity<BinaryObject>(b =>
+                       {
+                           b.HasIndex(e => new { e.TenantId });
+                       });
 
             modelBuilder.Entity<ChatMessage>(b =>
             {

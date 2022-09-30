@@ -1,6 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <localizationDictionary culture="en">
-  <texts>
+  <texts>    <text name="Admin">Admin</text>
+    <text name="People">People</text>
+    <text name="Framework.Admin.People">People</text>
+    <text name="PeoplesHeaderInfo">Peoples header info</text>
+    <text name="CreateNewPeople">Create new people</text>
+    <text name="EditPeople">Edit people</text>
+    <text name="DeletePeople">Delete people</text>
+    <text name="Peoples">Peoples</text>
+    <text name="{0}IsRequired">{0} is required.</text>
+    <text name="View">View</text>
+    <text name="Details">Details</text>
+    <text name="Pick">Pick</text>
+    <text name="True">True</text>
+    <text name="False">False</text>
+    <text name="MinValue">Min</text>
+    <text name="MaxValue">Max</text>
+
     <text name="HomePage">Home page</text>
     <text name="AboutUs">About us</text>
     <text name="Administration">Administration</text>
