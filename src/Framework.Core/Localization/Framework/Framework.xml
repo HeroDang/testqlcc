@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <localizationDictionary culture="en">
-  <texts>    <text name="Admin">Admin</text>
+  <texts>
+    <text name="Admin">Admin</text>
     <text name="People">People</text>
     <text name="Framework.Admin.People">People</text>
     <text name="PeoplesHeaderInfo">Peoples header info</text>
@@ -1137,5 +1138,8 @@
     <text name="CurrentFile">Current File</text>
     <text name="Dashboard_NoPageDefined_Warning">There is no page defined for this dashboard. Please switch to edit mode and add a page!</text>
     <text name="Filter">Filter</text>
+
+	<text name="PhoneBook">Phone Book</text>
+
   </texts>
 </localizationDictionary>

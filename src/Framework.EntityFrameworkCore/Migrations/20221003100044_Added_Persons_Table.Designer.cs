@@ -4,14 +4,16 @@ using Framework.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Framework.Migrations
 {
     [DbContext(typeof(FrameworkDbContext))]
-    partial class FrameworkDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221003100044_Added_Persons_Table")]
+    partial class Added_Persons_Table
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1994,7 +1996,7 @@ namespace Framework.Migrations
                     b.ToTable("AbpTenants");
                 });
 
-            modelBuilder.Entity("Framework.Persons.Person", b =>
+            modelBuilder.Entity("Framework.Phonebook.Person", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -2039,37 +2041,6 @@ namespace Framework.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("PbPersons");
-                });
-
-            modelBuilder.Entity("Framework.Persons.Phone", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreationTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long?>("CreatorUserId")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("Number")
-                        .IsRequired()
-                        .HasMaxLength(16)
-                        .HasColumnType("nvarchar(16)");
-
-                    b.Property<int>("PersonId")
-                        .HasColumnType("int");
-
-                    b.Property<byte>("Type")
-                        .HasColumnType("tinyint");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PersonId");
-
-                    b.ToTable("PbPhones");
                 });
 
             modelBuilder.Entity("Framework.Storage.BinaryObject", b =>
@@ -2390,17 +2361,6 @@ namespace Framework.Migrations
                     b.Navigation("LastModifierUser");
                 });
 
-            modelBuilder.Entity("Framework.Persons.Phone", b =>
-                {
-                    b.HasOne("Framework.Persons.Person", "Person")
-                        .WithMany("Phones")
-                        .HasForeignKey("PersonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Person");
-                });
-
             modelBuilder.Entity("Abp.Application.Features.EditionFeatureSetting", b =>
                 {
                     b.HasOne("Abp.Application.Editions.Edition", "Edition")
@@ -2472,11 +2432,6 @@ namespace Framework.Migrations
                     b.Navigation("Settings");
 
                     b.Navigation("Tokens");
-                });
-
-            modelBuilder.Entity("Framework.Persons.Person", b =>
-                {
-                    b.Navigation("Phones");
                 });
 #pragma warning restore 612, 618
         }

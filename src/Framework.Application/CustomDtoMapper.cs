@@ -43,6 +43,8 @@ using Framework.Notifications.Dto;
 using Framework.Organizations.Dto;
 using Framework.Sessions.Dto;
 using Framework.WebHooks.Dto;
+using Framework.PhoneBook.Dto;
+using Framework.Persons;
 
 namespace Framework
 {
@@ -163,6 +165,15 @@ namespace Framework
 
             //User Delegations
             configuration.CreateMap<CreateUserDelegationDto, UserDelegation>();
+
+            // PhoneBook (we will comment out other lines when the new DTOs are added)
+            configuration.CreateMap<Person, PersonListDto>();
+            configuration.CreateMap<AddPhoneInput, Phone>();
+            configuration.CreateMap<CreatePersonInput, Person>();
+            configuration.CreateMap<Person, GetPersonForEditOutput>();
+            configuration.CreateMap<Phone, PhoneInPersonListDto>();
+            configuration.CreateMap<PersonDto, Person>().ReverseMap();
+
 
             /* ADD YOUR OWN CUSTOM AUTOMAPPER MAPPINGS HERE */
         }

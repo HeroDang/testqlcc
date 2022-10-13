@@ -13,6 +13,7 @@
         <RootNamespace>Framework.Web</RootNamespace>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
         <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+        <PackageProjectUrl></PackageProjectUrl>
     </PropertyGroup>
 
     <ItemGroup>

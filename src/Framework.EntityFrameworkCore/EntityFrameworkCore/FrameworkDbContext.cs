@@ -12,6 +12,7 @@ using Framework.MultiTenancy;
 using Framework.MultiTenancy.Accounting;
 using Framework.MultiTenancy.Payments;
 using Framework.Storage;
+using Framework.Persons;
 
 namespace Framework.EntityFrameworkCore
 {
@@ -38,6 +39,10 @@ namespace Framework.EntityFrameworkCore
         public virtual DbSet<SubscriptionPaymentExtensionData> SubscriptionPaymentExtensionDatas { get; set; }
 
         public virtual DbSet<UserDelegation> UserDelegations { get; set; }
+
+        public virtual DbSet<Person> Persons { get; set; }
+
+        public virtual DbSet<Phone> Phones { get; set; }
 
         public FrameworkDbContext(DbContextOptions<FrameworkDbContext> options)
             : base(options)

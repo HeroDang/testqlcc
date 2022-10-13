@@ -4,14 +4,16 @@ using Framework.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Framework.Migrations
 {
     [DbContext(typeof(FrameworkDbContext))]
-    partial class FrameworkDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221009075103_Added_Phone")]
+    partial class Added_Phone
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
